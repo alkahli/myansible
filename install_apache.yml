@@ -1,0 +1,15 @@
+---
+-  hosts: group1
+   tasks:
+   -  name: installing httpd
+      yum:
+        name: httpd 
+        state: present
+   -  name: restrting httpd
+      service:
+        name: httpd
+        state: started
+   -   name: copying the fiel 
+       copy:
+         src: /etc/ansible/index.html
+         dest: /var/www/html/index.html
