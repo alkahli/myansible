@@ -1,2 +1,7 @@
 [group1]
 172.31.43.37
+[group2]
+172.31.36.133
+#[group1:vars]
+#pkg_name=tomcat
+#pkg_state=present

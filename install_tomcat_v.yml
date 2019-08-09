@@ -1,0 +1,23 @@
+---
+-  hosts: group1
+   tasks:
+   -  name: installing java
+      yum:
+        name: java
+        state: present
+   -  name: tar the file
+      unarchive:
+        src:  http://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.22/bin/apache-tomcat-9.0.22.tar.gz
+        dest: /opt
+        remote_src: yes
+   -  name: change the mode of /bin file permission for demo_user
+      file: 
+        path: /opt/apache-tomcat-9.0.22/bin
+        owner: demo_user
+        mode: '0777'  
+   -  name: restrt the tomcat
+      command: /opt/apache-tomcat-9.0.22/bin/./startup.sh
+   -  name: deploy benefits .war
+      get_url:
+        url: https://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/03-deployapps/files/benefits.war
+        dest: /usr/share/tomcat/webapps/benefits.war 

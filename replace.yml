@@ -1,0 +1,8 @@
+---
+-  hosts: group1
+   tasks:
+   -  name: replace v 1.0 to v 1.1
+      replace:
+        path: /etc/sample.conf
+        regexp: mohammed
+        replace: mohamed

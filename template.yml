@@ -1,0 +1,8 @@
+---
+-  hosts: group2
+   tasks:
+   -   name: copying the template file to get ip addersses
+       template:
+         src: /etc/ansible/templates/imp.j2
+         dest: /tmp/imp.conf
+
