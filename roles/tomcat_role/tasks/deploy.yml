@@ -1,0 +1,2 @@
+- name: deploying .war file
+  get_url: url={{pkg_url}} dest={{pkg_dest}} 

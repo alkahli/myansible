@@ -1,0 +1,5 @@
+---
+-  hosts: group1
+   roles:
+   -  tomcat_role
+

@@ -1,0 +1,2 @@
+- name: starting {{pkg_name}}
+  service: name={{pkg_name}} state={{pkg_ser_state}}

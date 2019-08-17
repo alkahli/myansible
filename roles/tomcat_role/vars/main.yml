@@ -1,0 +1,5 @@
+pkg_name: tomcat
+pkg_url: https://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/03-DeployApps/files/benefits.war
+pkg_state: present
+pkg_ser_state: started
+pkg_dest: /usr/share/tomcat/webapps/benefits.war

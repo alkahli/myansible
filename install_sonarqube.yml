@@ -1,0 +1,33 @@
+---
+-  hosts: group1
+   vars:
+     pkg_name: sonarqube
+   tasks:
+   -   name: downloadig java 
+       get_url:
+         url: http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm
+         dest: /opt/jdk-8u131-linux-x64.rpm
+   -   name: installing java
+       yum:
+         name: localinstall/opt/jdk-8u131-linux-x64.rpm 
+         state: present
+   -   name: downloading {{pkg_name}}
+       get_url: 
+         url: https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-6.4.zip
+         dest: /opt/sonarqube-6.4.zip
+   -   name: extraxting the {{pkg_name}} package
+       unarchive:
+         src: /opt/sonarqube-6.4.zip
+         dest: /opt/sonarqube
+   -   name: replace some {{pkg_name}} configuration lines
+       replace:
+         path: /opt/sonarqube/conf/sonar.properties
+         regexp: '#sonar.jdbc.username='
+         replace: 'sonar.jdbc.username=sonar'
+   -   name: replace some {{pkg_name}} configuration lines
+       replace:
+         path: /opt/sonarqube/conf/sonar.properties
+         regexp: '#sonar.jdbc.password='
+         replace: 'sonar.jdbc.password=StrongPassword'
+
+
